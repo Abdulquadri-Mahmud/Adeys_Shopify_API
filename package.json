@@ -1,11 +1,11 @@
 {
   "name": "adey_api",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node api/app.js",
-    "dev": "nodemon api/app.js"
+    "start": "node api/index.js",
+    "dev": "nodemon api/index.js"
   },
   "author": "",
   "license": "ISC",
