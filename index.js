@@ -19,6 +19,11 @@ mongoose.connect(process.env.db).then((response) => {
     console.log(error);
 });
 
+app.get((req, res,) => {
+    res.json({message: 'Hello World'})
+})
+
+
 app.use('/api/products', productsRoutes);
 
 app.use((err, req, res, next) => {
