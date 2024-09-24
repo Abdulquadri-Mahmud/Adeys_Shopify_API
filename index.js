@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 import productsRoutes from './routes/products_routes.js';
 
@@ -9,6 +10,14 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
+app.use(cors());
+
+const corsOptions = {
+    origin: 'http://localhost:5173/',//(https://your-client-app.com)
+    optionsSuccessStatus: 200,
+};
+ 
+app.use(cors(corsOptions));
 
 mongoose.connect(process.env.db).then((response) => {
     console.log('Database Connected!');
