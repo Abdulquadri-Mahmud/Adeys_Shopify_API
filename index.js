@@ -12,15 +12,15 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const corsOptions = {
-    origin: 'http://localhost:5173/',//(https://your-client-app.com)
-    optionsSuccessStatus: 200,
-};
+// const corsOptions = {
+//     origin: 'http://localhost:5173/',//(https://your-client-app.com)
+//     optionsSuccessStatus: 200,
+// };
  
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://localhost:5173/");
+    res.header("Access-Control-Allow-Origin", "http://localhost:5173");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
