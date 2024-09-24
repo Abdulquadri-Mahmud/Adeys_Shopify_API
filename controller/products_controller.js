@@ -80,7 +80,7 @@ export const updateProduct = async (req, res, next) => {
             return next(errorHandler(404, 'Product Not Found!'));
         }
 
-        const getProductsAndDelete = await Products.findByIdAndUpdate({ _id : id}, {...req.body});
+        const getProductsAndDelete = await Products.findByIdAndUpdate({ _id : id}, {...req.body}).sort({createdAt : -1});
 
         if (!getProductsAndDelete) {
             return next(errorHandler(404, 'Product Not Found!'));
