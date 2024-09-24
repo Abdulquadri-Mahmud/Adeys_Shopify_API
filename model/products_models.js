@@ -10,7 +10,11 @@ var productsSchema = new mongoose.Schema({
         require: true
     },
     price: {
-        type: Number,
+        type: String,
+        require: true
+    },
+    deal: {
+        type: String,
         require: true
     },
     image: {

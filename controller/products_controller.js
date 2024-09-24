@@ -3,11 +3,11 @@ import Products from "../model/products_models.js";
 import { errorHandler } from "../utils/errorHandler.js";
 
 export const createProducts = async (req, res, next) => {
-    const { name, quantity, price, image, description} = req.body;
+    const { name, deal, quantity, price, image, description} = req.body;
 
     try {
         const products = await Products.create({
-            name, quantity, price, image, description
+            name, deal, quantity, price, image, description
         });
 
         await products.save();
