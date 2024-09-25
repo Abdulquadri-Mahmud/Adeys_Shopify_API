@@ -3,11 +3,11 @@ import Products from "../model/products_models.js";
 import { errorHandler } from "../utils/errorHandler.js";
 
 export const createProducts = async (req, res, next) => {
-    const { name, deal, quantity, price, image, description} = req.body;
+    const { name, deal,category, quantity, price, image, description} = req.body;
 
     try {
         const products = await Products.create({
-            name, deal, quantity, price, image, description
+            name, deal,category, quantity, price, image, description
         });
 
         await products.save();
@@ -80,7 +80,7 @@ export const updateProduct = async (req, res, next) => {
             return next(errorHandler(404, 'Product Not Found!'));
         }
 
-        const getProductsAndDelete = await Products.findByIdAndUpdate({ _id : id}, {...req.body}).sort({createdAt : -1});
+        const getProductsAndDelete = await Products.findByIdAndUpdate({ _id : id}, {...req.body});
 
         if (!getProductsAndDelete) {
             return next(errorHandler(404, 'Product Not Found!'));
