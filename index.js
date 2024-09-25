@@ -13,10 +13,13 @@ app.use(express.json());
 app.use(cors());
 
 app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://localhost:5173");
+    res.header("Access-Control-Allow-Origin", "https://adexify-online-shopping.vercel.app");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+
+// https://adexify-online-shopping.vercel.app
+// http://localhost:5173
 
 mongoose.connect(process.env.db).then((response) => {
     console.log('Database Connected!');
