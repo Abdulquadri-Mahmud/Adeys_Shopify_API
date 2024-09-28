@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 
 import productsRoutes from './routes/products_routes.js';
+import userAuthentication from './routes/user_routes.js';
 
 dotenv.config();
 
@@ -13,7 +14,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://adexify-online-shopping.vercel.app");
+    res.header("Access-Control-Allow-Origin", "http://localhost:5173");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
@@ -35,6 +36,7 @@ app.get("/",(req, res,) => {
 });
 
 app.use('/api/products', productsRoutes);
+app.use('/api/user/auth', userAuthentication);
 
 app.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;
