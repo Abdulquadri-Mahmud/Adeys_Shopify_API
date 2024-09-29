@@ -1,4 +1,10 @@
 import mongoose from "mongoose";
+import { v4 as uuidv4 } from 'uuid' 
+
+const generateTrackingId = () => {
+    const number = 100000
+    return Math.floor(1000 * Math.random() * number).toString().slice(0, 5);
+}
 
 var productsSchema = new mongoose.Schema({
     name: {
@@ -28,6 +34,11 @@ var productsSchema = new mongoose.Schema({
     description: {
         type: String,
         required: true
+    },
+    trackingId : {
+        type: String,
+        unique: true,
+        default : generateTrackingId
     },
 }, {timestamps: true});
 
