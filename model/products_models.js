@@ -29,7 +29,7 @@ var productsSchema = new mongoose.Schema({
     },
     image: {
         type: [],
-        required: true
+        // required: true
     },
     description: {
         type: String,
