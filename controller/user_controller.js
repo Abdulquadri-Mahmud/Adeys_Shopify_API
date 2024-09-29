@@ -8,13 +8,13 @@ export const signup = async (req, res, next) => {
     const { firstname, lastname, phone, email, address, password, avatar} = req.body;
 
     try {
-        if (password.length <= 7) {
-            return next(errorHandler(400, 'Please kindly choose a strong password! max(8)'));
-        }
+        // if (password.length <= 7) {
+        //     return next(errorHandler(400, 'Please kindly choose a strong password! max(8)'));
+        // }
 
-        if (phone.length <= 12) {
-            return next(errorHandler(400, 'Inavlid number!'));
-        }
+        // if (phone.length <= 12) {
+        //     return next(errorHandler(400, 'Inavlid number!'));
+        // }
 
         const hashedPassword = bcryptjs.hashSync(password, 10);
 
