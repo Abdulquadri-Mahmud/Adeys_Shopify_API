@@ -5,6 +5,7 @@ import cors from 'cors';
 
 import productsRoutes from './routes/products_routes.js';
 import userAuthentication from './routes/user_routes.js';
+import cookieParser from 'cookie-parser';
 
 dotenv.config();
 
@@ -12,6 +13,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+app.use(cookieParser());
 
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:5173");
