@@ -19,6 +19,10 @@ var productsSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    oldprice: {
+        type: Number,
+        // required: true
+    },
     deal: {
         type: String,
         required: true
